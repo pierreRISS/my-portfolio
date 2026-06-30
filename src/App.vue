@@ -3,7 +3,6 @@ import ScrollProgress from './components/ScrollProgress.vue'
 import ScrollDeco from './components/ScrollDeco.vue'
 import CursorTrail from './components/CursorTrail.vue'
 import CursorGlow from './components/CursorGlow.vue'
-import TravelingAvatar from './components/TravelingAvatar.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
@@ -21,7 +20,6 @@ import SiteFooter from './components/SiteFooter.vue'
   <ScrollDeco />
   <CursorTrail />
   <CursorGlow />
-  <TravelingAvatar />
   <NavBar />
   <main>
     <HeroSection />

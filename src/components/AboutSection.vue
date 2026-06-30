@@ -1,6 +1,7 @@
 <script setup>
 import { profile } from '../data/content.js'
 import CountUp from './CountUp.vue'
+import Mascot from './Mascot.vue'
 
 const stats = [
   { value: 3, suffix: 'ᵉ', label: 'année à Epitech' },
@@ -29,7 +30,13 @@ const stats = [
         </p>
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
+      <div class="relative grid grid-cols-2 gap-4">
+        <!-- Mascotte assise sur le coin des stats -->
+        <div
+          class="pointer-events-none absolute right-6 top-0 z-20 hidden w-[4.5rem] aspect-[120/175] -translate-y-[64%] sm:block"
+        >
+          <Mascot flip />
+        </div>
         <div
           v-for="(s, i) in stats"
           :key="s.label"

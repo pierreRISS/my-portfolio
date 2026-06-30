@@ -223,6 +223,43 @@
   animation: avatar-bob 5s ease-in-out infinite;
 }
 
+/* Mascot : jambes qui se balancent */
+@keyframes leg-swing {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+.animate-leg-swing {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: leg-swing 2.6s ease-in-out infinite;
+}
+.animate-leg-swing-slow {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: leg-swing 3.4s ease-in-out infinite;
+}
+
+/* Mascot : respiration */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scaleY(1) translateY(0);
+  }
+  50% {
+    transform: scaleY(1.035) translateY(-1px);
+  }
+}
+.animate-breathe {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: breathe 3.6s ease-in-out infinite;
+}
+
 /* Clignement des yeux */
 @keyframes blink {
   0%,
@@ -244,7 +281,10 @@
   .animate-marquee,
   .animate-marquee-rev,
   .animate-avatar-bob,
-  .animate-blink {
+  .animate-blink,
+  .animate-leg-swing,
+  .animate-leg-swing-slow,
+  .animate-breathe {
     animation: none;
   }
 }
