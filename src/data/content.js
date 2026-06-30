@@ -87,8 +87,63 @@ export const experiences = [
   },
 ]
 
-// Projets — placeholders. Ajoute `link`, `repo`, `image`, etc. quand tu veux.
+// Projets. Champs disponibles par projet :
+//   image      → chemin dans /public (ex: '/projects/guava.png')
+//   imageFit   → 'cover' (défaut) ou 'contain' (pour captures mobiles)
+//   status     → badge en bas du visuel (ex: 'Publiée sur les stores')
+//   link / repo → boutons "Voir / Démo" et "Code" (apparaissent si remplis)
 export const projects = [
+  {
+    name: 'Guava — Révision médecine par IA',
+    year: '2025 — 2026',
+    blurb:
+      "Plateforme de révision pour les étudiants en santé (PASS / LAS) : sessions de QCM construites automatiquement à partir du programme, des échéances et des résultats de l'étudiant.",
+    details: [
+      'Application full-stack : Vue 3 + TypeScript en front, FastAPI + PostgreSQL en back.',
+      "Moteur de révision priorisée et suivi de progression par chapitre.",
+      "Projet mené en association avec un étudiant en médecine — actuellement en lancement (bêta ouverte).",
+    ],
+    tags: ['Vue 3', 'TypeScript', 'FastAPI', 'PostgreSQL', 'IA'],
+    accent: 'from-blue-500/30 to-indigo-500/20',
+    image: '/projects/guava.png',
+    imageFit: 'cover',
+    status: 'En lancement · Bêta ouverte',
+    link: '',
+    repo: '',
+  },
+  {
+    name: 'HistoChrono',
+    year: '2025 — 2026',
+    blurb:
+      "Jeu d'histoire mobile : place les événements sur une frise chronologique à travers les époques, de l'Antiquité à l'époque contemporaine.",
+    details: [
+      'Application mobile publiée sur le Google Play Store et déployée en production.',
+      'Front TanStack Start + Vue, packagée en natif avec Capacitor (Android & iOS), back Supabase.',
+      'Mission freelance, du développement jusqu’à la publication sur les stores.',
+    ],
+    tags: ['Mobile', 'Capacitor', 'Supabase', 'Freelance'],
+    accent: 'from-amber-500/30 to-yellow-600/20',
+    image: '/projects/histochrono.png',
+    imageFit: 'contain',
+    status: 'Publiée · Google Play',
+    link: 'https://play.google.com/store/apps/details?id=com.histochrono.app',
+    repo: '',
+  },
+  {
+    name: 'Zelia',
+    year: '2026',
+    blurb:
+      'Projet personnel — application en cours de développement. Détails et visuels à venir.',
+    details: [
+      'Projet perso mené en autonomie, de la conception au développement.',
+    ],
+    tags: ['Projet perso'],
+    accent: 'from-pink-500/30 to-rose-500/20',
+    image: '',
+    status: 'Projet perso · en cours',
+    link: '',
+    repo: '',
+  },
   {
     name: 'Comptage de pièces de puzzle par IA',
     year: '2026',

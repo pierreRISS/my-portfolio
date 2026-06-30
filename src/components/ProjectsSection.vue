@@ -9,8 +9,8 @@ import AppIcon from './AppIcon.vue'
     <div class="container-pr">
       <SectionHeading eyebrow="Projets" title="Ce que je construis.">
         <p class="text-lg text-white/55">
-          Une sélection de projets — IA, systèmes, rendu et réseau. D'autres
-          arrivent bientôt.
+          Des produits réels mis en ligne, des missions freelance et des projets
+          d'école — de l'IA aux systèmes bas niveau.
         </p>
       </SectionHeading>
 
@@ -22,21 +22,52 @@ import AppIcon from './AppIcon.vue'
           v-tilt="{ max: 6, scale: 1.01 }"
           class="glass group relative flex flex-col overflow-hidden rounded-4xl p-7 hover:border-white/20"
         >
-          <!-- Visual placeholder header -->
+          <!-- Visual header : image réelle ou placeholder -->
           <div
-            class="relative mb-6 grid h-44 place-items-center overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br"
-            :class="p.accent"
+            class="relative mb-6 overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br"
+            :class="[
+              p.image && p.imageFit === 'contain'
+                ? 'h-72 from-white/[0.06] to-black/30'
+                : `h-48 ${p.accent}`,
+            ]"
           >
-            <div
-              class="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:22px_22px]"
+            <!-- Image -->
+            <img
+              v-if="p.image"
+              :src="p.image"
+              :alt="`Aperçu de ${p.name}`"
+              loading="lazy"
+              class="h-full w-full transition-transform duration-700 group-hover:scale-[1.04]"
+              :class="
+                p.imageFit === 'contain'
+                  ? 'object-contain p-3'
+                  : 'object-cover object-top'
+              "
             />
-            <span class="relative text-sm font-medium uppercase tracking-widest text-white/50"
-              >Aperçu à venir</span
-            >
+            <!-- Placeholder si pas d'image -->
+            <template v-else>
+              <div
+                class="absolute inset-0 grid place-items-center opacity-40 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:22px_22px]"
+              />
+              <span
+                class="absolute inset-0 grid place-items-center text-sm font-medium uppercase tracking-widest text-white/50"
+                >Aperçu à venir</span
+              >
+            </template>
+
+            <!-- Année -->
             <span
-              class="absolute right-4 top-4 rounded-full bg-black/30 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur"
+              class="absolute right-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-white/85 backdrop-blur"
               >{{ p.year }}</span
             >
+            <!-- Statut -->
+            <span
+              v-if="p.status"
+              class="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-black/45 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              {{ p.status }}
+            </span>
           </div>
 
           <h3 class="text-2xl font-semibold tracking-tight text-white">
@@ -72,7 +103,7 @@ import AppIcon from './AppIcon.vue'
               rel="noopener"
               class="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-ink transition-transform hover:scale-[1.03]"
             >
-              Démo <AppIcon name="arrow" class="h-4 w-4" />
+              Découvrir <AppIcon name="arrow" class="h-4 w-4" />
             </a>
             <a
               v-if="p.repo"
