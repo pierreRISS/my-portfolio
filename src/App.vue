@@ -5,7 +5,6 @@ import CursorTrail from './components/CursorTrail.vue'
 import CursorGlow from './components/CursorGlow.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
-import IntroMascot from './components/IntroMascot.vue'
 import AboutSection from './components/AboutSection.vue'
 import TechMarquee from './components/TechMarquee.vue'
 import SkillsSection from './components/SkillsSection.vue'
@@ -24,7 +23,6 @@ import SiteFooter from './components/SiteFooter.vue'
   <NavBar />
   <main>
     <HeroSection />
-    <IntroMascot />
     <AboutSection />
     <TechMarquee />
     <SkillsSection />

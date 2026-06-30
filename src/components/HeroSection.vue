@@ -25,28 +25,6 @@ const scrollTo = (href) =>
       class="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:32px_32px]"
     />
 
-    <!-- Typo cinétique géante en fond -->
-    <div
-      class="pointer-events-none absolute inset-0 flex flex-col justify-center gap-2 overflow-hidden"
-    >
-      <div class="flex w-max animate-marquee whitespace-nowrap will-change-transform">
-        <span
-          v-for="n in 2"
-          :key="n"
-          class="text-stroke px-6 text-[10rem] font-black uppercase leading-none tracking-tight sm:text-[14rem]"
-          >Développeur · IA · Systèmes · Produit ·&nbsp;</span
-        >
-      </div>
-      <div class="flex w-max animate-marquee-rev whitespace-nowrap will-change-transform">
-        <span
-          v-for="n in 2"
-          :key="n"
-          class="text-stroke px-6 text-[10rem] font-black uppercase leading-none tracking-tight sm:text-[14rem]"
-          >Full-Stack · Freelance · Vue · Python ·&nbsp;</span
-        >
-      </div>
-    </div>
-
     <div v-parallax="{ speed: 0.12 }" class="container-pr relative">
       <div
         v-reveal

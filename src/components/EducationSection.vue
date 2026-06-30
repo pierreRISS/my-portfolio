@@ -1,7 +1,6 @@
 <script setup>
 import { education, languages, hobbies } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
-import Mascot from './Mascot.vue'
 </script>
 
 <template>
@@ -10,13 +9,7 @@ import Mascot from './Mascot.vue'
       <!-- Education -->
       <div>
         <SectionHeading eyebrow="Formations" title="Mon parcours." />
-        <div class="relative space-y-4">
-          <!-- Mascotte assise sur le coin -->
-          <div
-            class="pointer-events-none absolute right-6 top-0 z-20 hidden w-[4.2rem] aspect-[120/175] -translate-y-[64%] sm:block"
-          >
-            <Mascot flip />
-          </div>
+        <div class="space-y-4">
           <div
             v-for="(ed, i) in education"
             :key="ed.school"

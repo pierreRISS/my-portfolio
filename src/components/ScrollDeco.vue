@@ -99,21 +99,6 @@ const glyphStyle = (g) => ({
     scrollY.value * g.r
   }deg) skewY(${vel.value * 0.15}deg)`,
 })
-
-// Fusée : grimpe au fil de la page + s'étire selon la vitesse de scroll
-const rocketStyle = computed(() => {
-  const climb = (1 - frac.value) * vh.value * 0.72 + vh.value * 0.1
-  const sway = Math.sin(frac.value * Math.PI * 5) * 40
-  const tilt = Math.sin(frac.value * Math.PI * 5) * 8 - vel.value * 0.25
-  const stretch = 1 + Math.min(0.4, Math.abs(vel.value) * 0.006)
-  return {
-    transform: `translate3d(${sway}px, ${climb}px, 0) rotate(${tilt}deg) scaleY(${stretch})`,
-  }
-})
-// la flamme s'allonge quand on scrolle vite
-const flameLen = computed(() =>
-  Math.min(7, 2.5 + Math.abs(vel.value) * 0.06),
-)
 </script>
 
 <template>
@@ -140,42 +125,5 @@ const flameLen = computed(() =>
       :style="glyphStyle(g)"
       >{{ g.t }}</span
     >
-
-    <!-- Fusée qui grimpe avec flamme -->
-    <div
-      class="absolute right-[8%] top-0 will-change-transform sm:right-[10%]"
-      :style="rocketStyle"
-    >
-      <!-- flamme -->
-      <div
-        class="absolute left-1/2 top-[88%] -translate-x-1/2 animate-flame"
-        :style="{ height: flameLen + 'rem' }"
-      >
-        <div
-          class="mx-auto h-full w-3 rounded-b-full bg-gradient-to-b from-amber-300 via-orange-500 to-transparent blur-[1px]"
-        />
-      </div>
-      <div
-        class="absolute left-1/2 top-[90%] h-16 w-1 -translate-x-1/2 rounded-full bg-gradient-to-b from-accent-2/70 to-transparent blur-[2px]"
-      />
-      <!-- corps -->
-      <svg
-        viewBox="0 0 24 24"
-        class="h-20 w-20 text-accent drop-shadow-[0_0_22px_rgba(99,102,241,0.7)]"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path
-          d="M12 15l-3-3a22 22 0 0 1 9-12 8 8 0 0 1 3 3 22 22 0 0 1-12 9z"
-          class="fill-accent/25"
-        />
-        <path d="M9 12H4s.5-2.8 2-4a4.6 4.6 0 0 1 4 0" class="fill-accent/20" />
-        <path d="M12 15v5s2.8-.5 4-2a4.6 4.6 0 0 0 0-4" class="fill-accent/20" />
-        <circle cx="15" cy="9" r="1.6" class="fill-white/70 stroke-none" />
-      </svg>
-    </div>
   </div>
 </template>

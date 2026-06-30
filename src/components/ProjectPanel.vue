@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref, computed } from 'vue'
 import AppIcon from './AppIcon.vue'
-import Mascot from './Mascot.vue'
 
 const props = defineProps({
   project: { type: Object, required: true },
@@ -154,13 +153,6 @@ const numStyle = computed(() => {
                 <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 {{ project.status }}
               </span>
-            </div>
-
-            <!-- Mascotte assise sur le bord de l'image -->
-            <div
-              class="pointer-events-none absolute right-10 top-0 z-20 w-[5.5rem] aspect-[120/175] -translate-y-[68%]"
-            >
-              <Mascot :flip="flip" />
             </div>
           </div>
 

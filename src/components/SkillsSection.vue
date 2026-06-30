@@ -3,11 +3,10 @@ import { skills } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
 import AppIcon from './AppIcon.vue'
 import AmbientShapes from './AmbientShapes.vue'
-import Mascot from './Mascot.vue'
 </script>
 
 <template>
-  <section id="skills" class="relative overflow-hidden py-28 sm:py-36">
+  <section id="skills" class="relative py-28 sm:py-36">
     <AmbientShapes />
     <div class="container-pr">
       <SectionHeading eyebrow="Compétences" title="La boîte à outils.">
@@ -17,13 +16,7 @@ import Mascot from './Mascot.vue'
         </p>
       </SectionHeading>
 
-      <div class="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Mascotte assise sur le coin -->
-        <div
-          class="pointer-events-none absolute right-8 top-0 z-20 hidden w-[4.5rem] aspect-[120/175] -translate-y-[64%] sm:block"
-        >
-          <Mascot flip />
-        </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="(group, i) in skills"
           :key="group.label"

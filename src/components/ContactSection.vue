@@ -1,7 +1,6 @@
 <script setup>
 import { profile, availability } from '../data/content.js'
 import AppIcon from './AppIcon.vue'
-import Mascot from './Mascot.vue'
 
 const channels = [
   { icon: 'mail', label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
@@ -11,14 +10,8 @@ const channels = [
 </script>
 
 <template>
-  <section id="contact" class="relative overflow-hidden py-28 sm:py-36">
-    <div class="container-pr relative">
-      <!-- Mascotte assise sur le bord de la carte -->
-      <div
-        class="pointer-events-none absolute right-12 top-0 z-20 hidden w-[5rem] aspect-[120/175] -translate-y-[66%] sm:block"
-      >
-        <Mascot />
-      </div>
+  <section id="contact" class="py-28 sm:py-36">
+    <div class="container-pr">
       <div
         v-reveal
         class="glass relative overflow-hidden rounded-[2.5rem] px-8 py-16 text-center sm:px-16 sm:py-24"
