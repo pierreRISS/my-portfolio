@@ -9,6 +9,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 const props = defineProps({
   src: { type: String, required: true },
   spin: { type: Number, default: 0 }, // rotation pilotée par le parent (scroll)
+  clip: { type: String, default: 'Idle' }, // pose / animation à jouer si dispo
 })
 const emit = defineEmits(['error', 'ready'])
 
@@ -90,8 +91,10 @@ const init = () => {
 
       if (gltf.animations && gltf.animations.length) {
         mixer = new THREE.AnimationMixer(model)
+        const wanted = new RegExp(props.clip, 'i')
         const clip =
-          gltf.animations.find((c) => /idle|wave|breath/i.test(c.name)) ||
+          gltf.animations.find((c) => wanted.test(c.name)) ||
+          gltf.animations.find((c) => /idle|breath/i.test(c.name)) ||
           gltf.animations[0]
         mixer.clipAction(clip).play()
       }

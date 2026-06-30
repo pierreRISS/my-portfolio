@@ -1,6 +1,7 @@
 <script setup>
 import { profile, availability } from '../data/content.js'
 import AppIcon from './AppIcon.vue'
+import SectionAvatar from './SectionAvatar.vue'
 
 const channels = [
   { icon: 'mail', label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
@@ -10,7 +11,8 @@ const channels = [
 </script>
 
 <template>
-  <section id="contact" class="py-28 sm:py-36">
+  <section id="contact" class="relative overflow-hidden py-28 sm:py-36">
+    <SectionAvatar clip="Dance" side="right" />
     <div class="container-pr">
       <div
         v-reveal
