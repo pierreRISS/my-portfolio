@@ -18,8 +18,9 @@ import AppIcon from './AppIcon.vue'
         <article
           v-for="(p, i) in projects"
           :key="p.name"
-          v-reveal="{ delay: (i % 2) * 100 }"
-          class="glass group relative flex flex-col overflow-hidden rounded-4xl p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-white/20"
+          v-reveal="{ variant: i % 2 ? 'right' : 'left', delay: 60 }"
+          v-tilt="{ max: 6, scale: 1.01 }"
+          class="glass group relative flex flex-col overflow-hidden rounded-4xl p-7 hover:border-white/20"
         >
           <!-- Visual placeholder header -->
           <div

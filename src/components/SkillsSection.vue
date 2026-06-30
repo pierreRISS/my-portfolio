@@ -18,8 +18,9 @@ import AppIcon from './AppIcon.vue'
         <div
           v-for="(group, i) in skills"
           :key="group.label"
-          v-reveal="{ delay: i * 70 }"
-          class="glass group rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
+          v-reveal="{ variant: 'scale', delay: i * 70 }"
+          v-tilt="{ max: 8 }"
+          class="glass group relative rounded-3xl p-6 hover:border-white/20"
         >
           <div
             class="mb-5 grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-accent/25 to-accent-2/20 text-white"

@@ -1,5 +1,8 @@
 // Apple-style scroll reveal using IntersectionObserver.
-// Usage: v-reveal  or  v-reveal="{ delay: 120 }"
+// Usage:
+//   v-reveal
+//   v-reveal="{ delay: 120 }"
+//   v-reveal="{ variant: 'left' | 'right' | 'scale' | 'blur', delay: 80 }"
 const observer = new IntersectionObserver(
   (entries) => {
     for (const entry of entries) {
@@ -15,6 +18,8 @@ const observer = new IntersectionObserver(
 export const reveal = {
   mounted(el, binding) {
     el.classList.add('reveal')
+    const variant = binding.value?.variant
+    if (variant) el.classList.add(`reveal-${variant}`)
     const delay = binding.value?.delay
     if (delay) el.style.transitionDelay = `${delay}ms`
     observer.observe(el)

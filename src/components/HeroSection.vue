@@ -19,7 +19,13 @@ const scrollTo = (href) =>
       style="animation-delay: -4s"
     />
 
-    <div class="container-pr relative">
+    <!-- Parallax dotted grid -->
+    <div
+      v-parallax="{ speed: 0.3 }"
+      class="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:32px_32px]"
+    />
+
+    <div v-parallax="{ speed: 0.12 }" class="container-pr relative">
       <div
         v-reveal
         class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/70 backdrop-blur"
@@ -34,7 +40,7 @@ const scrollTo = (href) =>
       </div>
 
       <h1
-        v-reveal="{ delay: 80 }"
+        v-reveal="{ variant: 'blur', delay: 80 }"
         class="mt-8 text-6xl font-semibold leading-[0.95] tracking-tight sm:text-7xl md:text-8xl"
       >
         <span class="text-gradient">{{ profile.firstName }}</span

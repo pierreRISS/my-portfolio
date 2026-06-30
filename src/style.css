@@ -69,17 +69,63 @@
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: none;
+}
+
+/* Directional / scale / blur variants */
+.reveal-left {
+  transform: translateX(-40px);
+}
+.reveal-right {
+  transform: translateX(40px);
+}
+.reveal-scale {
+  transform: scale(0.92);
+}
+.reveal-blur {
+  filter: blur(14px);
+  transform: translateY(20px) scale(0.98);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-blur {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
   html {
     scroll-behavior: auto;
   }
+}
+
+/* 3D tilt + cursor spotlight */
+.tilt {
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+    scale(var(--tilt-scale, 1));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tilt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    24rem 24rem at var(--mx, 50%) var(--my, 0%),
+    rgba(255, 255, 255, 0.12),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.tilt:hover::after {
+  opacity: 1;
 }
 
 /* Subtle floating animation for the hero orb */
