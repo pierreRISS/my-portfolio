@@ -209,10 +209,42 @@
   color: transparent;
 }
 
+/* Flottement « idle » de l'avatar (compose avec la transform du scroll) */
+@keyframes avatar-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+.animate-avatar-bob {
+  animation: avatar-bob 5s ease-in-out infinite;
+}
+
+/* Clignement des yeux */
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+.animate-blink {
+  transform-origin: center;
+  animation: blink 4.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-flame,
   .animate-marquee,
-  .animate-marquee-rev {
+  .animate-marquee-rev,
+  .animate-avatar-bob,
+  .animate-blink {
     animation: none;
   }
 }
