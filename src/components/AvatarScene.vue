@@ -1,6 +1,15 @@
 <script setup>
-import { onMounted, onUnmounted, ref, computed } from 'vue'
+import { onMounted, onUnmounted, ref, computed, defineAsyncComponent } from 'vue'
 import AvatarFigure from './AvatarFigure.vue'
+import { avatar3d } from '../data/content.js'
+
+// Three.js chargé en lazy → chunk séparé, hors du bundle initial.
+const Avatar3D = defineAsyncComponent(() => import('./Avatar3D.vue'))
+
+// Bascule sur le SVG si pas d'URL 3D ou si le modèle échoue à charger.
+const use3d = ref(!!avatar3d.url)
+const onAvatarError = () => (use3d.value = false)
+const spin = computed(() => dispP.value * Math.PI * 2)
 
 // Intro produit : un avatar de Pierre qui s'anime en fluide au scroll et
 // révèle, une à une, des cartes de son parcours. Façon page produit Apple.
@@ -140,9 +149,18 @@ const introStyle = computed(() => {
         <!-- Avatar central -->
         <div
           class="relative mx-auto"
-          :class="interactive ? 'w-[clamp(18rem,30vw,26rem)]' : 'w-72'"
+          :class="interactive ? 'w-[clamp(18rem,32vw,28rem)]' : 'w-72'"
         >
-          <div class="will-change-transform" :style="avatarStyle">
+          <!-- Vrai avatar 3D -->
+          <div v-if="use3d" class="aspect-[3/4] w-full">
+            <Avatar3D
+              :src="avatar3d.url"
+              :spin="interactive ? spin : 0"
+              @error="onAvatarError"
+            />
+          </div>
+          <!-- Repli SVG si la 3D ne charge pas -->
+          <div v-else class="will-change-transform" :style="avatarStyle">
             <div class="animate-avatar-bob">
               <AvatarFigure :look="look" class="aspect-[220/280]" />
             </div>

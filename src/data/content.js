@@ -18,6 +18,16 @@ export const profile = {
   linkedin: '', // ← ajoute ton lien LinkedIn ici
 }
 
+// Avatar 3D affiché dans l'intro (et réutilisable ailleurs).
+//  → Crée TON avatar sur https://readyplayer.me (cheveux bruns courts, sans
+//    lunettes…), récupère le lien .glb et colle-le dans `url` ci-dessous.
+//  En attendant, un modèle 3D animé sert de démo pour voir le rendu.
+export const avatar3d = {
+  url: 'https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb',
+  // Passe à true une fois ton avatar Ready Player Me en place (juste indicatif).
+  isReal: false,
+}
+
 export const availability = {
   badge: 'Disponible · Sept. 2026 → Fév. 2027',
   detail:
