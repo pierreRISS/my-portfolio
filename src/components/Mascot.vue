@@ -4,6 +4,7 @@
 // cligne des yeux et balance les jambes (animations CSS fluides).
 defineProps({
   flip: { type: Boolean, default: false }, // regarde vers la gauche si true
+  look: { type: Object, default: () => ({ x: 0, y: 0 }) }, // direction du regard
 })
 </script>
 
@@ -91,12 +92,19 @@ defineProps({
       <ellipse cx="43" cy="57" rx="5.5" ry="3.2" fill="#f29c8e" opacity="0.55" />
       <ellipse cx="77" cy="57" rx="5.5" ry="3.2" fill="#f29c8e" opacity="0.55" />
 
-      <!-- yeux (clignent) -->
-      <g class="animate-blink">
-        <ellipse cx="51" cy="49" rx="4.2" ry="5.4" fill="#2a1a12" />
-        <ellipse cx="69" cy="49" rx="4.2" ry="5.4" fill="#2a1a12" />
-        <circle cx="52.6" cy="47" r="1.5" fill="#fff" />
-        <circle cx="70.6" cy="47" r="1.5" fill="#fff" />
+      <!-- yeux (clignent + suivent le regard) -->
+      <g
+        :style="{
+          transform: `translate(${look.x}px, ${look.y}px)`,
+          transition: 'transform 0.3s ease-out',
+        }"
+      >
+        <g class="animate-blink">
+          <ellipse cx="51" cy="49" rx="4.2" ry="5.4" fill="#2a1a12" />
+          <ellipse cx="69" cy="49" rx="4.2" ry="5.4" fill="#2a1a12" />
+          <circle cx="52.6" cy="47" r="1.5" fill="#fff" />
+          <circle cx="70.6" cy="47" r="1.5" fill="#fff" />
+        </g>
       </g>
 
       <!-- nez + sourire -->
