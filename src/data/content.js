@@ -46,9 +46,14 @@ export const skills = [
     items: ['PyTorch', 'Machine Learning', 'Heuristiques'],
   },
   {
-    label: 'Outils',
+    label: 'Cloud & Déploiement',
+    icon: 'rocket',
+    items: ['Scaleway', 'App Store', 'Google Play'],
+  },
+  {
+    label: 'Outils & méthode',
     icon: 'tool',
-    items: ['Git', 'Linux'],
+    items: ['Git', 'Linux', 'Développement assisté par IA'],
   },
 ]
 
