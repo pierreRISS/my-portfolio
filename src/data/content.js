@@ -75,6 +75,7 @@ export const experiences = [
 export const projects = [
   {
     name: 'Guava — Révision médecine par IA',
+    featured: true,
     year: '2025 — 2026',
     blurb:
       "Plateforme de révision pour les étudiants en santé (PASS / LAS) : sessions de QCM construites automatiquement à partir du programme, des échéances et des résultats de l'étudiant.",
@@ -93,6 +94,7 @@ export const projects = [
   },
   {
     name: 'HistoChrono',
+    featured: true,
     year: '2025 — 2026',
     blurb:
       "Jeu d'histoire mobile : place les événements sur une frise chronologique à travers les époques, de l'Antiquité à l'époque contemporaine.",
@@ -111,6 +113,7 @@ export const projects = [
   },
   {
     name: 'Zelia — Comptage de puzzle par IA',
+    featured: true,
     year: '2026',
     blurb:
       "Projet perso : une app qui estime le nombre de pièces d'un puzzle à partir d'une simple photo, grâce à un modèle de vision par ordinateur.",
