@@ -2,6 +2,7 @@
 import { experiences } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
 import AmbientShapes from './AmbientShapes.vue'
+import Mascot from './Mascot.vue'
 </script>
 
 <template>
@@ -15,6 +16,12 @@ import AmbientShapes from './AmbientShapes.vue'
         <div
           class="absolute left-0 top-2 hidden h-full w-px bg-gradient-to-b from-accent/50 via-white/10 to-transparent sm:left-[7.5rem] sm:block"
         />
+        <!-- Mascotte assise sur le coin -->
+        <div
+          class="pointer-events-none absolute right-6 top-0 z-20 hidden w-[4.5rem] aspect-[120/175] -translate-y-[66%] sm:block"
+        >
+          <Mascot />
+        </div>
 
         <div class="space-y-4">
           <article

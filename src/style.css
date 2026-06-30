@@ -260,6 +260,33 @@
   animation: breathe 3.6s ease-in-out infinite;
 }
 
+/* Mascot : pupilles qui balaient (vivant au repos) */
+@keyframes eye-dart {
+  0%,
+  16% {
+    transform: translateX(0);
+  }
+  22%,
+  40% {
+    transform: translateX(2.4px);
+  }
+  46%,
+  64% {
+    transform: translateX(0);
+  }
+  70%,
+  88% {
+    transform: translateX(-2.4px);
+  }
+  94%,
+  100% {
+    transform: translateX(0);
+  }
+}
+.animate-eye-dart {
+  animation: eye-dart 7s ease-in-out infinite;
+}
+
 /* Clignement des yeux */
 @keyframes blink {
   0%,
@@ -282,6 +309,7 @@
   .animate-marquee-rev,
   .animate-avatar-bob,
   .animate-blink,
+  .animate-eye-dart,
   .animate-leg-swing,
   .animate-leg-swing-slow,
   .animate-breathe {

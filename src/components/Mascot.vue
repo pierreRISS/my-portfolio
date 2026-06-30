@@ -92,18 +92,22 @@ defineProps({
       <ellipse cx="43" cy="57" rx="5.5" ry="3.2" fill="#f29c8e" opacity="0.55" />
       <ellipse cx="77" cy="57" rx="5.5" ry="3.2" fill="#f29c8e" opacity="0.55" />
 
-      <!-- yeux (clignent + suivent le regard) -->
-      <g
-        :style="{
-          transform: `translate(${look.x}px, ${look.y}px)`,
-          transition: 'transform 0.3s ease-out',
-        }"
-      >
-        <g class="animate-blink">
-          <ellipse cx="51" cy="49" rx="4.2" ry="5.4" fill="#2a1a12" />
-          <ellipse cx="69" cy="49" rx="4.2" ry="5.4" fill="#2a1a12" />
-          <circle cx="52.6" cy="47" r="1.5" fill="#fff" />
-          <circle cx="70.6" cy="47" r="1.5" fill="#fff" />
+      <!-- yeux : blanc + pupille qui suit le regard, clignement + micro-balayage -->
+      <g class="animate-blink">
+        <ellipse cx="51" cy="49" rx="5.3" ry="6.4" fill="#fff" />
+        <ellipse cx="69" cy="49" rx="5.3" ry="6.4" fill="#fff" />
+        <g
+          :style="{
+            transform: `translate(${look.x}px, ${look.y}px)`,
+            transition: 'transform 0.28s ease-out',
+          }"
+        >
+          <g class="animate-eye-dart">
+            <circle cx="51" cy="49.5" r="3" fill="#221a14" />
+            <circle cx="69" cy="49.5" r="3" fill="#221a14" />
+            <circle cx="52.2" cy="48" r="1.1" fill="#fff" />
+            <circle cx="70.2" cy="48" r="1.1" fill="#fff" />
+          </g>
         </g>
       </g>
 
