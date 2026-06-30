@@ -16,6 +16,7 @@ defineProps({
     <h2 class="text-4xl font-semibold tracking-tight text-gradient sm:text-5xl">
       {{ title }}
     </h2>
+    <div class="heading-bar mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-accent to-accent-2" />
     <div class="mt-6"><slot /></div>
   </div>
 </template>

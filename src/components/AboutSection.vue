@@ -6,7 +6,7 @@ const stats = [
   { value: 3, suffix: 'ᵉ', label: 'année à Epitech' },
   { value: 2000, suffix: '+', label: 'utilisateurs touchés en prod' },
   { value: 30, suffix: 'K+', label: "images dans un dataset IA" },
-  { value: 100, suffix: 'K', label: 'vues pédagogiques cumulées' },
+  { value: 2, suffix: '', label: 'apps déployées (prod & stores)' },
 ]
 </script>
 

@@ -36,11 +36,13 @@ const channels = [
 
         <div class="relative mt-10 flex flex-wrap justify-center gap-3">
           <a
+            v-magnetic="{ strength: 0.4 }"
             :href="`mailto:${profile.email}`"
-            class="rounded-full bg-white px-7 py-3.5 font-medium text-ink transition-transform hover:scale-[1.03] active:scale-95"
+            class="rounded-full bg-white px-7 py-3.5 font-medium text-ink hover:scale-[1.03] active:scale-95"
             >Envoyer un email</a
           >
           <a
+            v-magnetic="{ strength: 0.4 }"
             :href="`tel:${profile.phoneHref}`"
             class="rounded-full border border-white/15 px-7 py-3.5 font-medium text-white/90 transition-colors hover:bg-white/5"
             >Appeler</a

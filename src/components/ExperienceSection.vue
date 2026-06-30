@@ -1,10 +1,12 @@
 <script setup>
 import { experiences } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
+import AmbientShapes from './AmbientShapes.vue'
 </script>
 
 <template>
-  <section id="experience" class="py-28 sm:py-36">
+  <section id="experience" class="relative py-28 sm:py-36">
+    <AmbientShapes />
     <div class="container-pr">
       <SectionHeading eyebrow="Parcours" title="Expériences." />
 

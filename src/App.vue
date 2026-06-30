@@ -1,5 +1,6 @@
 <script setup>
 import ScrollProgress from './components/ScrollProgress.vue'
+import CursorGlow from './components/CursorGlow.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
@@ -14,6 +15,7 @@ import SiteFooter from './components/SiteFooter.vue'
 
 <template>
   <ScrollProgress />
+  <CursorGlow />
   <NavBar />
   <main>
     <HeroSection />

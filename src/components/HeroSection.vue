@@ -61,7 +61,8 @@ const scrollTo = (href) =>
         class="mt-10 flex flex-wrap items-center gap-4"
       >
         <button
-          class="group rounded-full bg-white px-7 py-3.5 font-medium text-ink transition-transform hover:scale-[1.03] active:scale-95"
+          v-magnetic="{ strength: 0.4 }"
+          class="group rounded-full bg-white px-7 py-3.5 font-medium text-ink hover:scale-[1.03] active:scale-95"
           @click="scrollTo('#projects')"
         >
           Voir mes projets
@@ -70,6 +71,7 @@ const scrollTo = (href) =>
           >
         </button>
         <a
+          v-magnetic="{ strength: 0.4 }"
           :href="`mailto:${profile.email}`"
           class="rounded-full border border-white/15 px-7 py-3.5 font-medium text-white/90 transition-colors hover:bg-white/5"
           >Me contacter</a

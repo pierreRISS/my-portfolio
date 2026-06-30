@@ -2,10 +2,12 @@
 import { projects } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
 import AppIcon from './AppIcon.vue'
+import AmbientShapes from './AmbientShapes.vue'
 </script>
 
 <template>
-  <section id="projects" class="py-28 sm:py-36">
+  <section id="projects" class="relative py-28 sm:py-36">
+    <AmbientShapes />
     <div class="container-pr">
       <SectionHeading eyebrow="Projets" title="Ce que je construis.">
         <p class="text-lg text-white/55">

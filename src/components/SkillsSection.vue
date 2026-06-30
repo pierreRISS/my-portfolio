@@ -2,10 +2,12 @@
 import { skills } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
 import AppIcon from './AppIcon.vue'
+import AmbientShapes from './AmbientShapes.vue'
 </script>
 
 <template>
-  <section id="skills" class="py-28 sm:py-36">
+  <section id="skills" class="relative py-28 sm:py-36">
+    <AmbientShapes />
     <div class="container-pr">
       <SectionHeading eyebrow="Compétences" title="La boîte à outils.">
         <p class="text-lg text-white/55">
