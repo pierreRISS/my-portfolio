@@ -2,13 +2,11 @@
 import { experiences } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
 import AmbientShapes from './AmbientShapes.vue'
-import SectionAvatar from './SectionAvatar.vue'
 </script>
 
 <template>
   <section id="experience" class="relative overflow-hidden py-28 sm:py-36">
     <AmbientShapes />
-    <SectionAvatar clip="Wave" side="left" />
     <div class="container-pr">
       <SectionHeading eyebrow="Parcours" title="Expériences." />
 

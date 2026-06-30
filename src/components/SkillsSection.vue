@@ -3,13 +3,11 @@ import { skills } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
 import AppIcon from './AppIcon.vue'
 import AmbientShapes from './AmbientShapes.vue'
-import SectionAvatar from './SectionAvatar.vue'
 </script>
 
 <template>
   <section id="skills" class="relative overflow-hidden py-28 sm:py-36">
     <AmbientShapes />
-    <SectionAvatar clip="ThumbsUp" side="right" />
     <div class="container-pr">
       <SectionHeading eyebrow="Compétences" title="La boîte à outils.">
         <p class="text-lg text-white/55">
