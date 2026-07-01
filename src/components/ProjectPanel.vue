@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref, computed } from 'vue'
+import { assetUrl } from '../utils/asset.js'
 import AppIcon from './AppIcon.vue'
 
 const props = defineProps({
@@ -133,7 +134,7 @@ const numStyle = computed(() => {
             >
               <img
                 v-if="project.image"
-                :src="project.image"
+                :src="assetUrl(project.image)"
                 :alt="`Aperçu de ${project.name}`"
                 class="h-full w-full will-change-transform"
                 :class="

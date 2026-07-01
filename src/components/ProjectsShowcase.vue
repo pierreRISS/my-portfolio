@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { projects } from '../data/content.js'
+import { assetUrl } from '../utils/asset.js'
 import SectionHeading from './SectionHeading.vue'
 import ProjectPanel from './ProjectPanel.vue'
 import AppIcon from './AppIcon.vue'
@@ -53,7 +54,7 @@ const others = computed(() => projects.filter((p) => !p.featured))
           >
             <img
               v-if="p.image"
-              :src="p.image"
+              :src="assetUrl(p.image)"
               :alt="`Aperçu de ${p.name}`"
               loading="lazy"
               class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
