@@ -107,7 +107,7 @@ const numStyle = computed(() => {
     >
       <!-- Numéro fantôme -->
       <span
-        class="pointer-events-none absolute -top-4 left-2 select-none text-[26vw] font-bold leading-none text-white sm:left-6"
+        class="pointer-events-none absolute -top-4 left-2 select-none text-[26vw] font-bold leading-none text-ink sm:left-6"
         :style="numStyle"
         aria-hidden="true"
         >{{ String(index + 1).padStart(2, '0') }}</span
@@ -124,10 +124,10 @@ const numStyle = computed(() => {
             :style="frameStyle"
           >
             <div
-              class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br shadow-2xl shadow-black/40"
+              class="relative overflow-hidden rounded-[2rem] border border-ink/10 bg-gradient-to-br shadow-2xl shadow-black/40"
               :class="
                 project.imageFit === 'contain'
-                  ? 'aspect-[4/3] from-white/[0.06] to-black/40'
+                  ? 'aspect-[4/3] from-ink/[0.06] to-black/40'
                   : `aspect-[4/3] ${project.accent}`
               "
             >
@@ -144,11 +144,11 @@ const numStyle = computed(() => {
                 :style="imgStyle"
               />
               <div
-                class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10"
+                class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-ink/10"
               />
               <span
                 v-if="project.status"
-                class="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur"
+                class="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-bg/90 backdrop-blur"
               >
                 <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 {{ project.status }}
@@ -168,7 +168,7 @@ const numStyle = computed(() => {
             >
               {{ project.name }}
             </h3>
-            <p class="mt-6 max-w-xl text-lg text-white/65">
+            <p class="mt-6 max-w-xl text-lg text-ink/65">
               {{ project.blurb }}
             </p>
 
@@ -176,7 +176,7 @@ const numStyle = computed(() => {
               <li
                 v-for="d in project.details"
                 :key="d"
-                class="flex gap-2.5 text-white/55"
+                class="flex gap-2.5 text-ink/55"
               >
                 <span class="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent-2" />
                 {{ d }}
@@ -187,7 +187,7 @@ const numStyle = computed(() => {
               <span
                 v-for="t in project.tags"
                 :key="t"
-                class="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-white/65"
+                class="rounded-full border border-ink/10 bg-ink/[0.03] px-3 py-1 text-xs text-ink/65"
                 >{{ t }}</span
               >
             </div>
@@ -198,7 +198,7 @@ const numStyle = computed(() => {
                 :href="project.link"
                 target="_blank"
                 rel="noopener"
-                class="inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-ink transition-transform hover:scale-[1.03]"
+                class="inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-bg transition-transform hover:scale-[1.03]"
               >
                 Découvrir <AppIcon name="arrow" class="h-4 w-4" />
               </a>
@@ -207,13 +207,13 @@ const numStyle = computed(() => {
                 :href="project.repo"
                 target="_blank"
                 rel="noopener"
-                class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-5 py-2.5 text-sm text-white/80 transition-colors hover:bg-white/5"
+                class="inline-flex items-center gap-1.5 rounded-full border border-ink/15 px-5 py-2.5 text-sm text-ink/80 transition-colors hover:bg-ink/5"
               >
                 <AppIcon name="github" class="h-4 w-4" /> Code
               </a>
               <span
                 v-if="!project.link && !project.repo"
-                class="text-sm text-white/35"
+                class="text-sm text-ink/35"
                 >Lien à venir</span
               >
             </div>

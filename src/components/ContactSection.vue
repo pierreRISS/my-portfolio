@@ -1,12 +1,42 @@
 <script setup>
+import { ref, onUnmounted } from 'vue'
 import { profile, availability } from '../data/content.js'
 import AppIcon from './AppIcon.vue'
 
 const channels = [
-  { icon: 'mail', label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-  { icon: 'phone', label: 'Téléphone', value: profile.phone, href: `tel:${profile.phoneHref}` },
-  { icon: 'pin', label: 'Localisation', value: profile.location, href: null },
+  { icon: 'mail', label: 'Email', value: profile.email, copy: true },
+  { icon: 'phone', label: 'Téléphone', value: profile.phone, copy: true },
+  { icon: 'pin', label: 'Localisation', value: profile.location, copy: false },
 ]
+
+const copied = ref(null)
+let timer = null
+
+const copy = async (c) => {
+  if (!c.copy) return
+  try {
+    await navigator.clipboard.writeText(c.value)
+  } catch {
+    // Fallback pour les navigateurs sans Clipboard API (ou hors HTTPS)
+    const ta = document.createElement('textarea')
+    ta.value = c.value
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    try {
+      document.execCommand('copy')
+    } catch {
+      /* ignore */
+    }
+    document.body.removeChild(ta)
+  }
+  copied.value = c.label
+  clearTimeout(timer)
+  timer = setTimeout(() => (copied.value = null), 1600)
+}
+
+onUnmounted(() => clearTimeout(timer))
 </script>
 
 <template>
@@ -30,7 +60,7 @@ const channels = [
         >
           Construisons quelque chose ensemble.
         </h2>
-        <p class="relative mx-auto mt-6 max-w-xl text-lg text-white/55">
+        <p class="relative mx-auto mt-6 max-w-xl text-lg text-ink/55">
           {{ availability.detail }}
         </p>
 
@@ -38,13 +68,13 @@ const channels = [
           <a
             v-magnetic="{ strength: 0.4 }"
             :href="`mailto:${profile.email}`"
-            class="rounded-full bg-white px-7 py-3.5 font-medium text-ink hover:scale-[1.03] active:scale-95"
+            class="rounded-full bg-ink px-7 py-3.5 font-medium text-bg hover:scale-[1.03] active:scale-95"
             >Envoyer un email</a
           >
           <a
             v-magnetic="{ strength: 0.4 }"
             :href="`tel:${profile.phoneHref}`"
-            class="rounded-full border border-white/15 px-7 py-3.5 font-medium text-white/90 transition-colors hover:bg-white/5"
+            class="rounded-full border border-ink/15 px-7 py-3.5 font-medium text-ink/90 transition-colors hover:bg-ink/5"
             >Appeler</a
           >
         </div>
@@ -53,18 +83,30 @@ const channels = [
           class="relative mx-auto mt-14 grid max-w-2xl gap-4 sm:grid-cols-3"
         >
           <component
-            :is="c.href ? 'a' : 'div'"
+            :is="c.copy ? 'button' : 'div'"
             v-for="c in channels"
             :key="c.label"
-            :href="c.href || undefined"
-            class="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors"
-            :class="c.href ? 'hover:border-white/20 hover:bg-white/[0.05]' : ''"
+            :type="c.copy ? 'button' : undefined"
+            :title="c.copy ? 'Cliquer pour copier' : undefined"
+            class="flex flex-col items-center gap-2 rounded-2xl border border-ink/10 bg-ink/[0.03] p-5 transition-colors"
+            :class="
+              c.copy ? 'cursor-pointer hover:border-ink/20 hover:bg-ink/[0.05]' : ''
+            "
+            @click="copy(c)"
           >
-            <AppIcon :name="c.icon" class="h-5 w-5 text-accent-2" />
-            <span class="text-xs uppercase tracking-wider text-white/40">{{
+            <AppIcon
+              :name="copied === c.label ? 'check' : c.icon"
+              class="h-5 w-5"
+              :class="copied === c.label ? 'text-emerald-500' : 'text-accent-2'"
+            />
+            <span class="text-xs uppercase tracking-wider text-ink/40">{{
               c.label
             }}</span>
-            <span class="text-sm text-white/85">{{ c.value }}</span>
+            <span
+              class="text-sm transition-colors"
+              :class="copied === c.label ? 'font-medium text-emerald-600' : 'text-ink/85'"
+              >{{ copied === c.label ? 'Copié !' : c.value }}</span
+            >
           </component>
         </div>
       </div>

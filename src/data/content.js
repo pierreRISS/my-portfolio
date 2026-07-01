@@ -9,7 +9,7 @@ export const profile = {
   title: 'Étudiant en informatique · Epitech',
   tagline: 'Développement logiciel, IA et systèmes.',
   intro:
-    "Étudiant en 3ᵉ année à Epitech, passionné par le développement logiciel, l'intelligence artificielle et les systèmes. J'aime concevoir des produits soignés, de l'algorithme bas niveau jusqu'à l'interface.",
+    "Étudiant en 3ᵉ année à Epitech, passionné par le développement logiciel, l'intelligence artificielle et les systèmes.",
   location: 'Chambéry & Lyon',
   email: 'pierre.riss.pro@gmail.com',
   phone: '07 69 19 20 57',
@@ -94,7 +94,7 @@ export const projects = [
     image: '/projects/guava.png',
     imageFit: 'cover',
     status: 'En bêta · en lancement',
-    link: '',
+    link: 'https://gueva-front.s3-website.fr-par.scw.cloud/',
     repo: '',
   },
   {
@@ -112,8 +112,8 @@ export const projects = [
     accent: 'from-amber-500/30 to-yellow-600/20',
     image: '/projects/histochrono.png',
     imageFit: 'contain',
-    status: 'Publiée · Google Play',
-    link: '',
+    status: 'Publiée · App Store',
+    link: 'https://apps.apple.com/us/developer/et-edutainment/id6773749443',
     repo: '',
   },
   {
@@ -132,8 +132,8 @@ export const projects = [
     image: '/projects/zelia.jpg',
     imageFit: 'cover',
     status: 'Projet perso · en cours',
-    link: '', // ← tu pourras mettre le lien Zelia ici
-    repo: '',
+    link: '',
+    repo: 'https://github.com/pierreRISS/Zelia-',
   },
   {
     name: 'Zappy',

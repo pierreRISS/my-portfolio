@@ -4,7 +4,6 @@ import { projects } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
 import ProjectPanel from './ProjectPanel.vue'
 import AppIcon from './AppIcon.vue'
-import AmbientShapes from './AmbientShapes.vue'
 
 const featured = computed(() => projects.filter((p) => p.featured))
 const others = computed(() => projects.filter((p) => !p.featured))
@@ -12,10 +11,9 @@ const others = computed(() => projects.filter((p) => !p.featured))
 
 <template>
   <section id="projects" class="relative py-28 sm:py-36">
-    <AmbientShapes />
     <div class="container-pr">
       <SectionHeading eyebrow="Projets" title="Ce que je construis.">
-        <p class="text-lg text-white/55">
+        <p class="text-lg text-ink/55">
           Des produits réels mis en ligne, des missions freelance et des projets
           d'école — de l'IA aux systèmes bas niveau.
         </p>
@@ -36,7 +34,7 @@ const others = computed(() => projects.filter((p) => !p.featured))
     <div class="container-pr mt-24">
       <p
         v-reveal
-        class="mb-10 text-sm font-medium uppercase tracking-[0.2em] text-white/40"
+        class="mb-10 text-sm font-medium uppercase tracking-[0.2em] text-ink/40"
       >
         Autres projets
       </p>
@@ -47,10 +45,10 @@ const others = computed(() => projects.filter((p) => !p.featured))
           :key="p.name"
           v-reveal="{ variant: 'scale', delay: i * 70 }"
           v-tilt="{ max: 6, scale: 1.01 }"
-          class="glass group relative flex flex-col overflow-hidden rounded-3xl p-6 hover:border-white/20"
+          class="glass group relative flex flex-col overflow-hidden rounded-3xl p-6 hover:border-ink/20"
         >
           <div
-            class="relative mb-5 h-40 overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br"
+            class="relative mb-5 h-40 overflow-hidden rounded-2xl border border-ink/5 bg-gradient-to-br"
             :class="p.accent"
           >
             <img
@@ -61,21 +59,21 @@ const others = computed(() => projects.filter((p) => !p.featured))
               class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
             />
             <span
-              class="absolute right-3 top-3 rounded-full bg-black/40 px-2.5 py-0.5 text-xs font-medium text-white/85 backdrop-blur"
+              class="absolute right-3 top-3 rounded-full bg-black/40 px-2.5 py-0.5 text-xs font-medium text-bg/90 backdrop-blur"
               >{{ p.year }}</span
             >
           </div>
 
-          <h3 class="text-xl font-semibold tracking-tight text-white">
+          <h3 class="text-xl font-semibold tracking-tight text-ink">
             {{ p.name }}
           </h3>
-          <p class="mt-2 text-sm leading-relaxed text-white/55">{{ p.blurb }}</p>
+          <p class="mt-2 text-sm leading-relaxed text-ink/55">{{ p.blurb }}</p>
 
           <div class="mt-4 flex flex-wrap gap-1.5">
             <span
               v-for="t in p.tags"
               :key="t"
-              class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 text-xs text-white/60"
+              class="rounded-full border border-ink/10 bg-ink/[0.03] px-2.5 py-0.5 text-xs text-ink/60"
               >{{ t }}</span
             >
           </div>
@@ -89,7 +87,7 @@ const others = computed(() => projects.filter((p) => !p.featured))
               :href="p.link"
               target="_blank"
               rel="noopener"
-              class="inline-flex items-center gap-1.5 text-sm font-medium text-white/85 hover:text-white"
+              class="inline-flex items-center gap-1.5 text-sm font-medium text-ink/85 hover:text-ink"
             >
               Découvrir <AppIcon name="arrow" class="h-4 w-4" />
             </a>
@@ -98,7 +96,7 @@ const others = computed(() => projects.filter((p) => !p.featured))
               :href="p.repo"
               target="_blank"
               rel="noopener"
-              class="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white"
+              class="inline-flex items-center gap-1.5 text-sm text-ink/70 hover:text-ink"
             >
               <AppIcon name="github" class="h-4 w-4" /> Code
             </a>

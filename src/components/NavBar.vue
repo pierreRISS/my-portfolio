@@ -38,7 +38,7 @@ const go = (href) => {
         @click.prevent="go('#top')"
       >
         <span
-          class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-accent to-accent-2 text-sm font-bold text-white shadow-lg shadow-accent/30"
+          class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-accent to-accent-2 text-sm font-bold text-bg shadow-lg shadow-accent/30"
           >PR</span
         >
         <span class="hidden sm:block">Pierre Riss</span>
@@ -49,7 +49,7 @@ const go = (href) => {
           v-for="link in links"
           :key="link.href"
           :href="link.href"
-          class="rounded-full px-4 py-2 text-sm text-white/60 transition-colors hover:text-white"
+          class="rounded-full px-4 py-2 text-sm text-ink/60 transition-colors hover:text-ink"
           @click.prevent="go(link.href)"
           >{{ link.label }}</a
         >
@@ -57,12 +57,12 @@ const go = (href) => {
 
       <a
         :href="`mailto:${profile.email}`"
-        class="hidden rounded-full bg-white px-4 py-2 text-sm font-medium text-ink transition-transform hover:scale-[1.03] active:scale-95 md:block"
+        class="hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-bg transition-transform hover:scale-[1.03] active:scale-95 md:block"
         >Me contacter</a
       >
 
       <button
-        class="grid h-9 w-9 place-items-center rounded-lg text-white/80 md:hidden"
+        class="grid h-9 w-9 place-items-center rounded-lg text-ink/80 md:hidden"
         aria-label="Menu"
         @click="menuOpen = !menuOpen"
       >
@@ -83,7 +83,7 @@ const go = (href) => {
             v-for="link in links"
             :key="link.href"
             :href="link.href"
-            class="rounded-2xl px-4 py-3 text-white/80 transition-colors hover:bg-white/5"
+            class="rounded-2xl px-4 py-3 text-ink/80 transition-colors hover:bg-ink/5"
             @click.prevent="go(link.href)"
             >{{ link.label }}</a
           >

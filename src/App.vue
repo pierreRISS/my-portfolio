@@ -1,12 +1,9 @@
 <script setup>
 import ScrollProgress from './components/ScrollProgress.vue'
 import ScrollDeco from './components/ScrollDeco.vue'
-import CursorTrail from './components/CursorTrail.vue'
-import CursorGlow from './components/CursorGlow.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
-import TechMarquee from './components/TechMarquee.vue'
 import SkillsSection from './components/SkillsSection.vue'
 import ExperienceSection from './components/ExperienceSection.vue'
 import ProjectsShowcase from './components/ProjectsShowcase.vue'
@@ -18,13 +15,10 @@ import SiteFooter from './components/SiteFooter.vue'
 <template>
   <ScrollProgress />
   <ScrollDeco />
-  <CursorTrail />
-  <CursorGlow />
   <NavBar />
   <main>
     <HeroSection />
     <AboutSection />
-    <TechMarquee />
     <SkillsSection />
     <ProjectsShowcase />
     <ExperienceSection />

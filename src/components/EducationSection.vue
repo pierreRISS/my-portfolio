@@ -17,10 +17,10 @@ import SectionHeading from './SectionHeading.vue'
             class="glass rounded-3xl p-6"
           >
             <div class="flex items-baseline justify-between gap-4">
-              <h3 class="text-lg font-semibold text-white">{{ ed.school }}</h3>
-              <span class="text-sm text-white/40">{{ ed.period }}</span>
+              <h3 class="text-lg font-semibold text-ink">{{ ed.school }}</h3>
+              <span class="text-sm text-ink/40">{{ ed.period }}</span>
             </div>
-            <p class="mt-1 text-white/60">{{ ed.diploma }}</p>
+            <p class="mt-1 text-ink/60">{{ ed.diploma }}</p>
           </div>
         </div>
       </div>
@@ -36,10 +36,10 @@ import SectionHeading from './SectionHeading.vue'
             class="mb-5 last:mb-0"
           >
             <div class="mb-2 flex items-baseline justify-between">
-              <span class="font-medium text-white/90">{{ lang.name }}</span>
-              <span class="text-sm text-white/45">{{ lang.level }}</span>
+              <span class="font-medium text-ink/90">{{ lang.name }}</span>
+              <span class="text-sm text-ink/45">{{ lang.level }}</span>
             </div>
-            <div class="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+            <div class="h-1.5 w-full overflow-hidden rounded-full bg-ink/10">
               <div
                 class="h-full rounded-full bg-gradient-to-r from-accent to-accent-2"
                 :style="{ width: lang.value + '%' }"
@@ -52,7 +52,7 @@ import SectionHeading from './SectionHeading.vue'
           <span
             v-for="h in hobbies"
             :key="h"
-            class="glass rounded-2xl px-5 py-3 text-white/80"
+            class="glass rounded-2xl px-5 py-3 text-ink/80"
             >{{ h }}</span
           >
         </div>

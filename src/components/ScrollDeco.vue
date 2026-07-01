@@ -88,10 +88,10 @@ const orbs = computed(() => {
 const glyphs = [
   { t: '</>', cls: 'left-[4%] top-[16%] text-7xl text-accent/40', s: 0.12, r: 0.03 },
   { t: '{ }', cls: 'right-[6%] top-[24%] text-6xl text-accent-2/40', s: -0.1, r: -0.04 },
-  { t: '( )', cls: 'left-[9%] top-[50%] text-5xl text-white/25', s: 0.15, r: 0.04 },
+  { t: '( )', cls: 'left-[9%] top-[50%] text-5xl text-ink/25', s: 0.15, r: 0.04 },
   { t: ';', cls: 'right-[11%] top-[60%] text-8xl text-accent/35', s: -0.13, r: 0 },
   { t: '#', cls: 'left-[6%] top-[82%] text-6xl text-accent-2/35', s: 0.1, r: -0.03 },
-  { t: '[ ]', cls: 'right-[7%] top-[88%] text-5xl text-white/20', s: -0.12, r: 0.05 },
+  { t: '[ ]', cls: 'right-[7%] top-[88%] text-5xl text-ink/20', s: -0.12, r: 0.05 },
   { t: '=>', cls: 'left-[44%] top-[36%] text-5xl text-accent/30', s: 0.09, r: 0.02 },
 ]
 const glyphStyle = (g) => ({
