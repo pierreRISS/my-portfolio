@@ -35,7 +35,7 @@ export const experiences = [
   {
     role: 'Co-fondateur & développeur',
     company: 'Guava',
-    link: 'https://guava.study',
+    link: 'https://app.guava.study/',
     period: 'Juin 2026 — aujourd’hui',
     summary:
       'SaaS de révision pour les étudiants en santé (PASS / LAS), co-construit avec un étudiant en médecine. Je porte le produit et la technique.',
@@ -99,8 +99,8 @@ export const featuredProject = {
     'Révision pour les étudiants en santé : l’étudiant choisit ses chapitres et ses échéances, Guava lui propose chaque jour la session qui fait avancer son programme.',
   tags: ['Docker', 'Scaleway', 'Codemagic', 'LLM'],
   image: '/projects/guava.jpg',
-  link: 'https://guava.study',
-  linkLabel: 'guava.study',
+  link: 'https://app.guava.study/',
+  linkLabel: 'app.guava.study',
 }
 
 // Projets avec visuel. Champs :
