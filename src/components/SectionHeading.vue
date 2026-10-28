@@ -1,22 +1,11 @@
 <script setup>
-defineProps({
-  eyebrow: String,
-  title: String,
-})
+defineProps({ title: { type: String, required: true } })
 </script>
 
 <template>
-  <div v-reveal class="mb-14 max-w-2xl">
-    <p
-      v-if="eyebrow"
-      class="mb-3 text-sm font-medium uppercase tracking-[0.2em] accent-gradient"
-    >
-      {{ eyebrow }}
-    </p>
-    <h2 class="text-4xl font-semibold tracking-tight text-gradient sm:text-5xl">
-      {{ title }}
-    </h2>
-    <div class="heading-bar mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-accent to-accent-2" />
-    <div class="mt-6"><slot /></div>
-  </div>
+  <h2
+    class="sticky top-0 z-10 -mx-6 mb-8 bg-bg/90 px-6 py-4 font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted backdrop-blur sm:-mx-10 sm:px-10 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none"
+  >
+    {{ title }}
+  </h2>
 </template>

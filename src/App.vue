@@ -1,29 +1,21 @@
 <script setup>
-import ScrollProgress from './components/ScrollProgress.vue'
-import ScrollDeco from './components/ScrollDeco.vue'
-import NavBar from './components/NavBar.vue'
-import HeroSection from './components/HeroSection.vue'
-import AboutSection from './components/AboutSection.vue'
-import SkillsSection from './components/SkillsSection.vue'
+import SidePanel from './components/SidePanel.vue'
 import ExperienceSection from './components/ExperienceSection.vue'
-import ProjectsShowcase from './components/ProjectsShowcase.vue'
-import EducationSection from './components/EducationSection.vue'
-import ContactSection from './components/ContactSection.vue'
+import ProjectsSection from './components/ProjectsSection.vue'
+import SkillsSection from './components/SkillsSection.vue'
+import AboutSection from './components/AboutSection.vue'
 import SiteFooter from './components/SiteFooter.vue'
 </script>
 
 <template>
-  <ScrollProgress />
-  <ScrollDeco />
-  <NavBar />
-  <main>
-    <HeroSection />
-    <AboutSection />
-    <SkillsSection />
-    <ProjectsShowcase />
-    <ExperienceSection />
-    <EducationSection />
-    <ContactSection />
-  </main>
-  <SiteFooter />
+  <div class="mx-auto max-w-6xl px-6 sm:px-10 lg:flex lg:px-12">
+    <SidePanel />
+    <main class="pb-16 lg:w-[58%] lg:py-16 lg:pl-14">
+      <ExperienceSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <AboutSection />
+      <SiteFooter />
+    </main>
+  </div>
 </template>

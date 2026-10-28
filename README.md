@@ -1,6 +1,6 @@
 # Portfolio — Pierre Riss
 
-Portfolio personnel moderne (style Apple), construit avec **Vue 3 + Vite + Tailwind CSS v4**.
+Portfolio personnel sobre (colonne de présentation fixe + contenu qui défile), construit avec **Vue 3 + Vite + Tailwind CSS v4**.
 
 ## Démarrer
 
@@ -21,19 +21,13 @@ src/data/content.js
 
 Tu y trouves :
 
-- `profile` — nom, titre, email, téléphone, localisation, liens GitHub/LinkedIn.
-- `availability` — bannière de disponibilité.
-- `skills` — compétences groupées par catégorie.
+- `profile` — nom, titre, accroche, email, téléphone, liens GitHub/LinkedIn.
+- `availability` — encart « Recherche un stage ».
+- `highlights` — chiffres clés sous la présentation.
 - `experiences` — expériences professionnelles.
-- `projects` — **placeholders de projets**. Ajoute `link` (démo) et `repo` (code)
-  quand ils sont prêts ; le bouton apparaît automatiquement.
-- `education`, `languages`, `hobbies`.
-
-### Ajouter une image à un projet
-
-Les cartes projet affichent un placeholder « Aperçu à venir ».
-Pour brancher une vraie image, dépose-la dans `public/` puis adapte
-`src/components/ProjectsSection.vue` (la zone `.rounded-3xl` de l'en-tête de carte).
+- `projects` — projets avec visuel (`image` dans `public/projects/`, `link`, `repo`).
+- `otherProjects` — projets secondaires, affichés en liste compacte.
+- `skills`, `education`, `languages`, `involvement`, `interests`.
 
 ## Structure
 
@@ -41,7 +35,6 @@ Pour brancher une vraie image, dépose-la dans `public/` puis adapte
 src/
 ├── data/content.js        ← édite ton contenu ici
 ├── components/            ← sections du site
-├── directives/reveal.js   ← animation d'apparition au scroll
 ├── style.css              ← thème Tailwind + styles globaux
 └── App.vue
 ```

@@ -1,62 +1,64 @@
 <script setup>
 import { experiences } from '../data/content.js'
 import SectionHeading from './SectionHeading.vue'
+import AppIcon from './AppIcon.vue'
 </script>
 
 <template>
-  <section id="experience" class="relative py-28 sm:py-36">
-    <div class="container-pr">
-      <SectionHeading eyebrow="Parcours" title="Expériences." />
+  <section id="experience" class="scroll-mt-16 pb-20 lg:scroll-mt-24">
+    <SectionHeading title="Expériences" />
 
-      <div class="relative">
-        <!-- vertical line -->
-        <div
-          class="absolute left-0 top-2 hidden h-full w-px bg-gradient-to-b from-accent/50 via-ink/10 to-transparent sm:left-[7.5rem] sm:block"
-        />
+    <ol class="space-y-12">
+      <li
+        v-for="e in experiences"
+        :key="e.company"
+        class="grid gap-2 sm:grid-cols-[9rem_1fr] sm:gap-6"
+      >
+        <p class="pt-1 font-mono text-xs text-muted">{{ e.period }}</p>
 
-        <div class="space-y-4">
-          <article
-            v-for="(exp, i) in experiences"
-            :key="exp.role"
-            v-reveal="{ delay: i * 80 }"
-            class="relative sm:pl-44"
+        <div>
+          <h3 class="font-medium leading-snug text-ink">
+            {{ e.role }} ·
+            <a
+              v-if="e.link"
+              :href="e.link"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-0.5 underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-ink"
+              >{{ e.company
+              }}<AppIcon name="external" class="h-3.5 w-3.5" /></a>
+            <span v-else>{{ e.company }}</span>
+          </h3>
+
+          <p class="mt-2 text-sm leading-relaxed text-muted">{{ e.summary }}</p>
+
+          <ul class="mt-3 space-y-1.5 text-sm leading-relaxed text-ink/80">
+            <li v-for="p in e.points" :key="p" class="flex gap-2.5">
+              <span class="mt-[0.6rem] h-1 w-1 shrink-0 rounded-full bg-ink/40" />
+              <span>{{ p }}</span>
+            </li>
+          </ul>
+
+          <p
+            v-if="e.metric"
+            class="mt-3 inline-block rounded bg-accent-soft px-2 py-0.5 text-xs font-medium text-accent"
           >
-            <div
-              class="absolute left-[7.5rem] top-7 hidden h-3 w-3 -translate-x-1/2 rounded-full border-2 border-accent bg-bg sm:block"
-            />
-            <div
-              class="absolute left-0 top-6 hidden text-sm text-ink/40 sm:block sm:w-28 sm:text-right"
-            >
-              {{ exp.period }}
-            </div>
+            {{ e.metric }}
+          </p>
 
-            <div
-              class="glass rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-ink/20 sm:p-7"
-            >
-              <div class="flex flex-wrap items-center gap-3">
-                <h3 class="text-xl font-semibold text-ink">{{ exp.role }}</h3>
-                <span
-                  class="rounded-full border border-ink/10 bg-ink/[0.04] px-2.5 py-1 text-xs text-ink/60"
-                  >{{ exp.type }}</span
-                >
-              </div>
-              <p class="mt-1 accent-gradient font-medium">{{ exp.company }}</p>
-              <p class="mt-1 text-sm text-ink/40 sm:hidden">{{ exp.period }}</p>
+          <p v-if="e.press" class="mt-2 text-sm italic text-muted">{{ e.press }}</p>
 
-              <ul class="mt-4 space-y-2.5">
-                <li
-                  v-for="pt in exp.points"
-                  :key="pt"
-                  class="flex gap-2.5 text-ink/60"
-                >
-                  <span class="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent-2" />
-                  {{ pt }}
-                </li>
-              </ul>
-            </div>
-          </article>
+          <ul class="mt-3 flex flex-wrap gap-1.5">
+            <li
+              v-for="t in e.tags"
+              :key="t"
+              class="rounded border border-line px-2 py-0.5 font-mono text-[11px] text-muted"
+            >
+              {{ t }}
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
+      </li>
+    </ol>
   </section>
 </template>
